@@ -1,0 +1,76 @@
+<!--
+  Copyright 2021, Bart Butenaers
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+  http://www.apache.org/licenses/LICENSE-2.0
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<script type="text/javascript">
+    RED.nodes.registerType('data-uri-generator',{
+        category: 'function',
+        color: '#a6bbcf',
+        defaults: {
+            inputField: {value:"payload", required: true},
+            outputField: {value:"payload", required: true},
+            format: {value: "txt", required: true},
+            name: {value:""}
+        },
+        inputs:1,
+        outputs:1,
+        icon: "font-awesome/fa-globe",
+        paletteLabel: "data uri",
+        label: function() {
+            return this.name||"data uri";
+        },
+        oneditprepare: function() { 
+            var node = this;
+
+            // Show the inputField value in a typedinput element (dropdown with only 'msg')
+            $("#node-input-inputField").typedInput({
+                default: 'msg',
+                types:['msg']
+            });
+            
+            // Show the outputField value in a typedinput element (dropdown with only 'msg')
+            $("#node-input-outputField").typedInput({
+                default: 'msg',
+                types:['msg']
+            });
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="data-uri-generator">
+    <div class="form-row">
+        <label for="node-input-inputField"><i class="fa fa-sign-in"></i> Input field</label>
+        <input id="node-input-inputField" type="text" style="width: 70%">
+    </div>
+    <div class="form-row">
+        <label for="node-input-outputField"><i class="fa fa-sign-out"></i> Output field</label>
+        <input id="node-input-outputField" type="text" style="width: 70%">
+    </div>
+    <div class="form-row">
+        <label for="node-input-format"><i class="fa fa-file-excel-o"></i> Format</label>
+        <input id="node-input-format" type="text" style="width: 70%">
+    </div>
+    </br>
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="data-uri-generator">
+    <p>A node to generate a data uri of input data.</p>
+    <p><strong>Input field:</strong><br/>
+    The input message field that contains the data (as buffer or string), that needs to be included inside the data uri.</p> 
+    <p><strong>Output field:</strong><br/>
+    The output message field where the generated data uri will be stored.</p> 
+    <p><strong>Format:</strong><br/>
+    The format of the input data, which needs to be specified as a simple <i>file extension</i>.  For example the 'png' format will result automatically in mime type 'image/png'.  See the <code>"extensions"</code> in the <a target="_blank" href="https://github.com/jshttp/mime-db/blob/master/db.json">mime DB</a> for a complete overview of all available extensions.</p> 
+</script>
