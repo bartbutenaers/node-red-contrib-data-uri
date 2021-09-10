@@ -1,0 +1,26 @@
+{
+    "name": "node-red-contrib-data-uri",
+    "version": "1.0.0",
+    "description": "A Node-RED node to generate a data URI containing specified data",
+    "dependencies": {
+        "datauri": "^4.1.0"
+    },
+    "author": {
+        "name": "Bart Butenaers"
+    },
+    "license": "Apache-2.0",
+    "keywords": ["node-red", "data", "uri", "url", "mime", "media"],
+    "bugs": {
+        "url": "https://github.com/bartbutenaers/node-red-contrib-data-uri/issues"
+    },
+    "homepage": "https://github.com/bartbutenaers/node-red-contrib-data-uri",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/bartbutenaers/node-red-contrib-data-uri.git"
+    },
+    "node-red": {
+        "nodes": {
+            "data-uri-generator": "data_uri.js"
+        }
+    }
+}
