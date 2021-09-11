@@ -9,6 +9,24 @@ npm install node-red-contrib-data-uri
 
 ## Node usage
 
+### Data URI basics
+A Uniform Resource Identifier (URI) is a unique path to a web resource (web page, image, document, ...).  A client can use such a URI to get a resource from a web server:
+
+![URI flow](https://user-images.githubusercontent.com/14224149/132959607-49a4293a-5ecb-4a8e-98b3-022632a67cb4.png)
+
+However in some cases it is not possible to use an URI:
++ It is not desired to make the resource public available on the internet, because the content should not be accessible for everybody (for privacy reasons).
++ The resource should only be temporary available, until the client has fetched the resource.  
++ ...
+
+In those cases a [data URI](https://en.wikipedia.org/wiki/Data_URI_scheme) might be a solution.  A data URI contains the entire (base64 encoded) content of the resource:
+```
+data:<some media type>;base64,<base64 encoded resource data>
+```
+When such a data URI is passed to a client, the client will simply decode the base64 encoded data inside the URI (instead of accessing an external resource on a remote webserver).
+
+### Example flow
+
 The following example flow injects a string *"Hello Node-RED"* into this node::
 
 ![example flow](https://user-images.githubusercontent.com/14224149/132923612-73a47700-e028-4c53-a7a6-dd21ae2a532a.png)
