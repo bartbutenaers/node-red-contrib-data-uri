@@ -39,6 +39,9 @@ It is very easy to check whether the data URI contains the input text, by pastin
 
 ![Browser test](https://user-images.githubusercontent.com/14224149/132923969-4512570f-f39b-494b-b92e-65948ebc42f1.png)
 
+### Alternatives
+
+Note that - when dealing with images - the [node-red-contrib-image-tools](https://discourse.nodered.org/t/announce-node-red-contrib-data-uri-beta/50901/7?u=bartbutenaers) also allow you to create a data URI.
 
 ## Node properties
 
